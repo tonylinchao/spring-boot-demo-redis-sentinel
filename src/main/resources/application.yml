@@ -1,0 +1,35 @@
+spring:
+  # Redis
+  redis:
+    ssl: true
+    database: 0
+    timeout: 300s
+    cluster:
+      nodes:
+        - 10.168.123.119:30080
+        - 10.168.123.120:30081
+        - 10.168.123.121:30082
+    lettuce:
+      pool:
+        max-idle: 8
+        max-active: 8
+        min-idle: 8
+        max-wait: -1ms
+    username: uat-cim3
+    password: 1e5fb4abd45b3d0cdf90e7f616872251cb165d1b2a5c4ed03aca4b91a67291d2
+
+    sentinel:
+      master: redis-ocpuat
+      nodes: 10.168.123.116:32080,10.168.123.117:32081,10.168.123.118:32082
+      username: uat-cim3
+      password: 1e5fb4abd45b3d0cdf90e7f616872251cb165d1b2a5c4ed03aca4b91a67291d2
+      #username: uat-cim
+      #password: a07735da09c2414a935ae48231c21e15e07b0bc462421c766f61c9ea716664bf
+
+
+javax:
+  net:
+    ssl:
+      keyStoreType: PKCS12
+      trustStore: /redis-uat-a.truststore.p12
+      password: Yzc0OTg0ZWY4
